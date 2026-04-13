@@ -1,0 +1,65 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="Lexio.App.Views.HomeView">
+    <StackPanel>
+    <Grid ColumnDefinitions="*, *" VerticalAlignment="Center">
+        <Button Cursor="Hand">Test</Button>
+        <!-- <Button Name="MyButton" Grid.Column="0"  -->
+        <!--         HorizontalAlignment="Center"  -->
+        <!--         BorderThickness="0"  -->
+        <!--         CornerRadius="10"  -->
+        <!--         FontWeight="ExtraBold" -->
+        <!--         FontSize="24" -->
+        <!--         > -->
+        <!--      -->
+        <!--     <Button.Styles> -->
+        <!--         <Style Selector="Button"> -->
+        <!--             <Setter Property="Background" Value="Transparent" /> -->
+        <!--         </Style> -->
+        <!--         <Style Selector="Button:pointerover /template/ ContentPresenter"> -->
+        <!--             <Setter Property="Background" Value="Green" /> -->
+        <!--              -->
+        <!--         </Style> -->
+        <!--         <Style Selector="Button:pressed /template/ ContentPresenter"> -->
+        <!--         </Style> -->
+        <!--     </Button.Styles> -->
+        <!--      -->
+        <!--     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"> -->
+        <!--         <StackPanel VerticalAlignment="Center" Margin="0 0 10 0"> -->
+        <!--             <TextBlock Text="Consulter le"></TextBlock> -->
+        <!--             <TextBlock Text="dictionnaire"></TextBlock> -->
+        <!--         </StackPanel> -->
+        <!--         <PathIcon Height="50" Width="50" Data="{StaticResource BookLetterRegular}" /> -->
+        <!--     </StackPanel> -->
+        <!-- </Button> -->
+ 
+    </Grid>
+        <Panel Width="100" Height="100">
+            <!-- Background circle -->
+            <Ellipse Stroke="LightGray"
+                     StrokeThickness="20"
+                     Fill="Transparent"
+                     />
+
+            <!-- Progress arc -->
+            <Arc Stroke="red"
+                 StrokeThickness="20"
+                 StartAngle="-90"
+                 SweepAngle="340"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 StrokeLineCap="Flat"/>
+
+            <!-- Center label -->
+            <TextBlock Text="10"
+                       Foreground="Black"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+        </Panel>
+    </StackPanel>
+</UserControl>

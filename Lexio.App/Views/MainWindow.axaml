@@ -1,0 +1,163 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Lexio.App.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Lexio.App.Views"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+        x:Class="Lexio.App.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Lexio.App">
+
+    <Window.Styles>
+        <Style Selector="Button.NavButton TextBlock#MenuLabel">
+            <Setter Property="RenderTransform" Value="translate(0, 0)" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="Button.NavButton:pointerover TextBlock#MenuLabel">
+            <Setter Property="RenderTransform" Value="translate(10px, 0)" />
+        </Style>
+
+        <Style Selector="Button.NavButton.shake PathIcon#Icon">
+            <Style.Animations>
+                <Animation Duration="0:0:0.4" FillMode="Forward">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="20%">
+                        <Setter Property="RotateTransform.Angle" Value="-10" />
+                    </KeyFrame>
+                    <KeyFrame Cue="40%">
+                        <Setter Property="RotateTransform.Angle" Value="10" />
+                    </KeyFrame>
+                    <KeyFrame Cue="60%">
+                        <Setter Property="RotateTransform.Angle" Value="-8" />
+                    </KeyFrame>
+                    <KeyFrame Cue="80%">
+                        <Setter Property="RotateTransform.Angle" Value="8" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+
+        <Style Selector="Button.NavButton">
+            <Setter Property="BorderThickness" Value="0 0 0 1" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="FontSize" Value="24"></Setter>
+            <Setter Property="FontWeight" Value="ExtraBold"></Setter>
+            <Setter Property="Background" Value="#041a59" />
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="CornerRadius" Value="0"></Setter>
+            <Setter Property="Cursor" Value="hand"></Setter>
+        </Style>
+        <Style Selector="Button.NavButton /template/ ContentPresenter">
+            <Setter Property="Background" Value="#041a59" />
+            <Setter Property="BorderThickness" Value="0 0 0 1" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="Cursor" Value="hand"></Setter>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.NavButton:pressed">
+            <Setter Property="RenderTransform" Value="none" />
+            <Setter Property="BorderThickness" Value="0 0 0 1" />
+            <Setter Property="BorderBrush" Value="White" />
+        </Style>
+        <Style Selector="Button.NavButton:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="#041a59" />
+            <Setter Property="RenderTransform" Value="none" />
+        </Style>
+
+        <Style Selector="Button.NavButton:pointerover">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="0 0 0 1" />
+        </Style>
+        <Style Selector="Button.NavButton:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#102c9e" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="0 0 0 1" />
+        </Style>
+    </Window.Styles>
+
+    <Window.DataTemplates>
+        <DataTemplate DataType="vm:HomeViewModel">
+            <views:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="vm:SettingsViewModel">
+            <views:SettingsView />
+        </DataTemplate>
+    </Window.DataTemplates>
+
+    <Grid ColumnDefinitions="300, *">
+        <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Stretch" Background="#041a59"
+                    VerticalAlignment="Stretch">
+            
+            <Button Classes="NavButton" PointerEntered="Button_PointerEntered">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <TextBlock Grid.Column="0"
+                                       x:Name="MenuLabel"
+                                       Text="Mon dictionnaire"
+                                       Padding="10 15"
+                                       VerticalAlignment="Center" />
+
+                            <PathIcon Grid.Column="1"
+                                      x:Name="Icon"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Center"
+                                      Height="32" Width="32"
+                                      Margin="0 0 10 0"
+                                      Foreground="White"
+                                      Data="{StaticResource BookLetterRegular}" />
+                        </Grid>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+            
+            <Button Classes="NavButton" PointerEntered="Button_PointerEntered">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <TextBlock Grid.Column="0"
+                                       x:Name="MenuLabel"
+                                       Text="Mes séries"
+                                       Padding="10 15"
+                                       VerticalAlignment="Center" />
+
+                            <PathIcon Grid.Column="1"
+                                      x:Name="Icon"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Center"
+                                      Height="32" Width="32"
+                                      Margin="0 0 10 0"
+                                      Foreground="White"
+                                      Data="{StaticResource VoteRegular}" />
+                        </Grid>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </StackPanel>
+        <!-- <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="8" Margin="8"> -->
+        <!--     <Button Content="Home" Command="{Binding GoHomeCommand}" /> -->
+        <!--     <Button Content="Settings" Command="{Binding GoSettingsCommand}" /> -->
+        <!-- </StackPanel> -->
+
+        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}" />
+    </Grid>
+
+</Window>
