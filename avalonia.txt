@@ -1,0 +1,4 @@
+https://docs.avaloniaui.net/docs/avalonia12-breaking-changes
+https://docs.avaloniaui.net/api/avalonia/input/standardcursortype
+https://docs.avaloniaui.net/tools/developer-tools/installation#step-1-installing-avaloniaui-developer-tools
+https://docs.avaloniaui.net/docs/how-to/navigation-how-to
